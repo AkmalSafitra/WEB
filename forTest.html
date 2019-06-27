@@ -1,0 +1,45 @@
+<head>
+    <head>
+        
+    </head>
+    <body >
+        <p id ="wo">kuda</p>
+        <p id ="wk">a</p>
+        <p id ="wl">a</p>
+        <p id ="wm">a</p>
+        <button onclick="countWords()">kuda</button>
+        <script>
+             
+            function countWords(){
+                var sentence = new Array("Computers are of. the future.",
+                "Who is the. President of kuda.",
+                "I believe that, you can type well! rusa! iguana kuda.",
+                "This sentence probably consists? of seven words. kuda. kuda?");
+
+                var randNum = Math.floor((Math.random() * 10)) % 4;
+		        var sentenceRand = sentence[randNum];
+            
+                var s = sentenceRand;
+                s = s.replace(/\!/g,"");
+                s = s.replace(/\?/g,"");
+                s = s.replace(/\,/g,"");
+                s = s.replace(/\./g,"");
+               
+
+                // s = s.replace(/(^\s*)|(\s*$)/gi,"");
+                // s = s.replace(/[ ]{2,}/gi," ");
+                // s = s.replace(/\n /,"\n");
+                var word = s.split(' ').length;
+                var split = s.split(' ');
+
+                document.getElementById("wo").innerHTML=word;
+                document.getElementById("wk").innerHTML=sentenceRand;
+                document.getElementById("wl").innerHTML=s;
+                document.getElementById("wm").innerHTML=split[2];
+
+                
+            }
+            
+        </script>
+    </body>
+</head>

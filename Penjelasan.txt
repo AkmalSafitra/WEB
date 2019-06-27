@@ -1,0 +1,25 @@
+Penjelasan tentang Test Type Speed
+
+2 level :
+	1.beginner
+
+	2.Expert 
+	text akan hilang setelah beberapa detik (menguji kecepatan mengetik dan ingatan)
+
+Cookie untuk nama tester 
+			 record tercepat(belum jadi)
+			 
+function utk checkCookie masi bermasalah jadi masih di disable.rencananya akan di taruh di <body onload>
+
+ajax untuk menampilkan isi file txt(Fact.txt)
+
+Ajax dan Cookie hanya bisa kalau di run dari localhost dan web hosting
+tapi cookienya rusak kalo di hosting
+
+tampilan belum di perbagus
+
+link yg sudah di hosting
+https://testyourspeed.000webhostapp.com/
+
+Mohon sarannya Sir 
+Terimakasih

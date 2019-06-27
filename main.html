@@ -1,0 +1,209 @@
+<html>
+	<head>
+		
+		<Title>TestTypeSpeed</title>
+		<script src="script123456.js"></script>
+		<style>
+				body {
+					background-color: #D3D3D3;
+					font-family: Arial, Helvetica, sans-serif;
+					text-align: center;		
+					
+				}
+											
+				.page{
+					text-align: center;			
+				}
+  
+				.tip{
+					text-align: center;
+				}
+
+				.ck1{
+					text-align: center;
+				}
+   
+				
+				.modal {
+					display: none; 
+					position: fixed; 
+					text-align: center;
+					z-index: 1; 
+					padding-top: 100px; 
+					left: 0;
+					top: 0;
+					width: 100%; 
+					height: 100%; 
+					overflow: auto; 
+					background-color: rgb(0,0,0); 
+					background-color: rgba(0,0,0,0.4); 
+				}
+
+				
+				.modal-content {
+					background-color: #6B9362;
+					margin: auto;
+					padding: 20px;
+					border: 10px solid #407A52;
+					width: 80%;
+				}
+
+				
+				.close {
+					color: #aaaaaa;
+					float: right;
+					font-size: 30px;
+					font-weight: bold;
+				}
+
+				.close:hover,
+				.close:focus {
+					color: #000;
+					text-decoration: none;
+					cursor: pointer;
+				}
+				
+				.button {
+					
+					border: none;
+					
+					padding: 15px 32px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					margin: 4px 2px;
+					cursor: pointer;
+				}
+
+				.myBtn {font-size: 12px;}
+				.myBtn2 {font-size: 12px;}
+				.myBtn3 {font-size: 12px;}
+				.myBtn4 {font-size: 12px;}
+				.myBtn5 {font-size: 12px;}
+				.myBtn6 {font-size: 12px;}
+				
+				#dialogoverlay{
+					display: none;
+					opacity: .8;
+					position: fixed;
+					top: 0px;
+					left: 0px;
+					background: #FFF;
+					width: 100%;
+					height: 100%;
+					z-index: 10;
+				}
+
+				#dialogbox{
+					display: none;
+					position: fixed;
+					background:black;
+					border-radius:7px; 
+					width:550px;
+					z-index: 10;
+					left:400px;
+					top:100px;
+				}
+
+				#dialogbox > div{ 
+					background:#FFF; margin:8px; 
+				}
+
+				#dialogbox > div > #dialogboxhead{ 
+					background: rgb(9, 4, 73); 
+					font-size:19px; 
+					padding:5px;
+					text-align: left; 
+					color:#CCC; 
+				}
+
+				#dialogbox > div > #dialogboxbody{ 
+					background:white; 
+					padding:20px; 
+					color:rgb(9, 4, 73); 
+				}
+				
+				#dialogbox > div > #dialogboxfoot{
+					 background: rgb(9, 4, 73); 
+					 padding:10px; 
+					 text-align:right; 
+				 }	
+		
+		</style>
+	</head>
+	<body onload="checkCookie()">
+		
+		<center><p style="padding-top: 5% ; font-size:25">Typing Speed Checker</p></center>
+		<p id="player"></p>
+		<p id="lvl">Choose Your Level</p> 
+		 
+		<input type=radio id="beginner" name="radio" value="Beginner" onClick="beginner()">Beginner
+		<input type=radio id="memory" name="radio" value="Memory" onClick="memory()">Memory
+		<input type=radio id="training" name="radio" value="Training" onClick="train()">Training
+		
+		
+		<br> <br>
+
+		<p id="tips"></p>
+		
+		<center><button class="button myBtn2" id="myBtn2" onclick="modal2()" style="text-align : center">Full Tips</button>		</center>
+		
+		<br>
+		
+		<p id ="tx" style="border-style: outset; border-width: 5px; " hidden>a</p>
+		
+		<div id ="dv" class="page">
+			<form name="frm" onsubmit="return false;" >
+				<input class="button myBtn4" id ="start" type=button name="start" value="Start Typing" onClick="beginIt()" disabled>
+				<br> <br>
+							
+				<div onclick="not()" id ="box" style="height:40;background-color: white; border-style: outset; border-width: 5px; margin-left:200px;margin-right:200px">
+					<a id="grn" style="background-color: green;">
+					<a id="rd"  style="background-color: red;">
+					<a id="blk">Get Ready
+				</div>
+				
+				<br><br>
+				<center><input id="input" type="text" size= 125 rows=5 autocomplete="off" onkeyup="check();" disabled></center>
+				
+				<center><button class="button myBtn3" id="cek" onclick="done()" disabled>Check</button> </center>
+				
+			</form>
+			
+		</div>	
+		<div id="memo" style="display:none">
+			<p id="com"  ></p>
+			<input   id="input2" size= 125 rows=5  disabled autocomplete="off" onkeydown = "if (event.keyCode == 13)document.getElementById('myBtn').click()"    />
+			<br><br>
+			<button class="button myBtn6" id="myBtn" onclick="memCheck()" >Check</button>
+			
+		</div>
+		<div class ="tip">
+			<p id="fulltips"></p>
+		</div>
+	 
+		<button class="button myBtn2" id="myBtn" onclick="modal()" style="text-align : center">Type Speed Facts</button>
+		 
+		<div id="myModal" class="modal">
+
+		  <div  class="modal-content">
+			<span class="close" onclick="span()">&times;</span>
+			<p id="modcon">Some text</p>
+		  </div>
+
+		</div>
+		
+		<div id="dialogoverlay" onclick="Alert.ok()"></div>
+		<div id="dialogbox">
+			<script>if (event.keyCode == 13)document.getElementById('ok').click()</script>
+			<div>
+				<div id="dialogboxhead"></div>
+				<div id="dialogboxbody"></div>
+				<div id="dialogboxfoot">
+						<button id="ok" onclick="Alert.ok()">OK</button>
+				</div>
+			</div>
+		</div>
+
+	</body> 
+</html>
